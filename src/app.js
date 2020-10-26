@@ -1,13 +1,14 @@
-const FileDownloader = require('./lib/FileDownloader');
+const { init } = require('./lib/Hitomi');
 
-const url = 'https://miro.medium.com/max/640/0*i1v1In2Tn4Stnwnl.jpg';
-const dest = 'temp.jpg';
+const myArgs = process.argv.slice(2);
+if (myArgs.length < 1) {
+  console.error('Galery URL not informed.');
+  return false;
+}
 
-const fileDownloader = new FileDownloader();
-fileDownloader.download(url, dest)
-    .then((res) => {
-        console.log(`${url} =>`, res);
-    })
-    .catch((err) => {
-        console.log(`${url} =>`, err);
-    });
+init(myArgs[0]).then((res) => {
+    console.log('Done.');
+})
+.catch((err) => {
+    console.log('Error:', err);
+});

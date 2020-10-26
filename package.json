@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "crawler": "^1.2.2"
+    "adm-zip": "^0.4.16",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
   }
 }
